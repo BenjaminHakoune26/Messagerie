@@ -1,21 +1,21 @@
 {% extends 'base.html.twig' %}
-
-{% block title%} mon compte{% endblock %}
+{% block title %} Mon compte{% endblock %}
 
 {% block content %}
     <div class="container-fluid">
         <div class="row">
             <div class="col-1"></div>
             <div class="col-10">
-                <h1 style="text-align: center" class="my-5">Mon compte</h1>
-                <p>Bienvenue {{ app.user.firstname }}, dans votre compte. <br>
+                <h1 style="text-align: center" class="my-4">Mon compte</h1>
+                <p>Bienvenue <i>{{ app.user.firstname }}</i>, <br>
                     Vous pourrez gerer vos informations personelles depuis cette page.</p>
                 <hr>
-                nom : {{ app.user.lastname }} <br>
-                prenom : {{ app.user.firstname }} <br>
-                email : {{ app.user.email }}
+                <h4 class="mb-3"> Information personelles</h4>
+                <p><b>Nom</b> : {{ app.user.lastname }} <br>
+                    <b>Prénom</b> : {{ app.user.firstname }} <br>
+                    <b>Email</b> : {{ app.user.email }}</p>
                 <hr>
-                Pour modifier votre mot de passe <a href="{{ path('password') }}">Cliquez ici.</a>
+                <p>Pour modifier votre mot de passe <a href="{{ path('password') }}">Cliquez ici.</a></p>
             </div>
             <div class="col-1"></div>
         </div>

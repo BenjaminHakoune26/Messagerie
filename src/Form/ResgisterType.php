@@ -36,7 +36,7 @@ class ResgisterType extends AbstractType
                 'constraints'=> new Length(2,2,50),
                 'label'=>'Email',
                 'attr'=>[
-                    'placeholder'=> 'Votre adressse email . . .'
+                    'placeholder'=> 'Votre adresse email . . .'
                 ]
             ])
             ->add('password', RepeatedType::class,[
@@ -46,14 +46,14 @@ class ResgisterType extends AbstractType
                 'first_options'=>[
                     'label'=>'Mot de passe',
                     'attr'=>[
-                        'placeholder'=>'Entrer votre mot de passe . . .']],
+                        'placeholder'=>'Votre mot de passe . . .']],
                 'second_options'=>[
                     'label'=>'Confirmation du mot de passe',
                     'attr'=>[
                         'placeholder'=>'Confirmez votre mot de passe . . .']],
             ])
             ->add('submit', SubmitType::class,[
-                'label' => "s'inscire"
+                'label' => "S'inscire"
             ])
         ;
     }
