@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title%} mon compte{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <h1 style="text-align: center" class="my-5">Mon compte</h1>
+                <p>Bienvenue {{ app.user.firstname }}, dans votre compte. <br>
+                    Vous pourrez gerer vos informations personelles depuis cette page.</p>
+                <hr>
+                nom : {{ app.user.lastname }} <br>
+                prenom : {{ app.user.firstname }} <br>
+                email : {{ app.user.email }}
+                <hr>
+                - Modifier mon mot de passe
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+{% endblock %}
