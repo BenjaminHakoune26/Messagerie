@@ -30,7 +30,7 @@ class AccountController extends AbstractController
     /**
      * @route("modif_mdp", name="password")
      */
-    public function modifier_mdp(Request $request, UserPasswordEncoderInterface $encoder)
+    public function modifier_mdp(Request $request, UserPasswordEncoderInterface $encoder) : Response
     {
         $notification = null;
 

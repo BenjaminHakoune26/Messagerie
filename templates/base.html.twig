@@ -18,7 +18,8 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav"> {% if app.user %}
                     <a class="nav-link" href="#">Mes messages</a>
-                    <a class="nav-link" href="{{ path('account') }}">Espace membre</a>
+                    <a class="nav-link" href="{{ path('account') }}">Mon compte -
+                        <small>{{ app.user.firstname }}</small></a>
                     <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
                 {% else %}
                     <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
@@ -28,8 +29,16 @@
     </div>
 </nav>
 {% block content %}{% endblock %}
+
 </body>
 <footer>
+    <div class="container-fluid mt-2" style="text-align: center; position: absolute;
+    bottom: 0;width: 100%;background-color: rgba(248,139,139,0.64); padding-top: 10px">
+        <p> <small>&copy; 2021 Messagerie Sotech &middot;
+            <a href="https://www.sotech-international.com/en/">Sotech International</a> &middot;
+            <a href="#">Mention Légale</a> </small>
+        </p>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
             crossorigin="anonymous"></script>
