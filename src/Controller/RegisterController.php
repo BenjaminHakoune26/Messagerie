@@ -40,8 +40,8 @@ class RegisterController extends AbstractController
 
             $notification = "Vous êtes bien inscrit !";
 
-        } else{
-            $notification ="echec";
+        } else if($this->getUser()) {
+            $notification ="Une erreur est survenue";
         }
 
         return $this->render('register/index.html.twig',[

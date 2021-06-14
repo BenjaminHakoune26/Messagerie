@@ -54,7 +54,7 @@ class ResgisterType extends AbstractType
                         'placeholder'=>'Confirmez votre mot de passe . . .']],
             ])
             ->add('submit', SubmitType::class,[
-                'label' => "S'inscire"
+                'label' => "S'inscrire"
             ])
         ;
     }
