@@ -41,6 +41,7 @@ class ResgisterType extends AbstractType
             ])
             ->add('password', RepeatedType::class,[
                 'type'=>PasswordType::class,
+                'constraints' => new Length(null, 10),
                 'invalid_message'=>'Le mot de passe doit etre identique.',
                 'required'=>true,
                 'first_options'=>[

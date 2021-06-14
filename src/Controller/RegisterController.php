@@ -36,6 +36,9 @@ class RegisterController extends AbstractController
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();
+            echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+        Vous êtes inscrit !
+          </div>";
         }
 
         return $this->render('register/index.html.twig',[
