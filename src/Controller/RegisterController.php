@@ -25,24 +25,28 @@ class RegisterController extends AbstractController
      */
     public function index(Request $request, UserPasswordEncoderInterface $encoder): Response
     {
+        $notification = null;
 
         $user = new User();        $form = $this->createForm(ResgisterType::class, $user);
 
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
+        if($form->isSubmitted() && $form->isValid()) {
             $user = $form->getData();
-            $password = $encoder->encodePassword($user,$user->getPassword());
+            $password = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($password);
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();
-            echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
-        Vous êtes inscrit !
-          </div>";
+
+            $notification = "Vous êtes bien inscrit !";
+
+        } else{
+            $notification ="echec";
         }
 
         return $this->render('register/index.html.twig',[
-            'form'=>$form->createView()
+            'form'=>$form->createView(),
+            'notification'=>$notification
         ]);
     }
 }
