@@ -45,3 +45,9 @@ Q
 !src/Repository/UserRepository.php,9\4\943a623b5e2fd95ea78f6287fc600a6f8e0a5235
 H
 templates/base.html.twig,f\f\ffb3f1cfd73fdec1f0c80c63d0b5bbc1fff22022
+4
+.env,3\c\3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
+I
+templates/login.html.twig,8\f\8f2b7024e6e93404798c4a452619d4f721e4002f
+U
+%src/Controller/SecurityController.php,7\c\7cc876ecdb4df676c79a6188e9f3ac45e5079434
