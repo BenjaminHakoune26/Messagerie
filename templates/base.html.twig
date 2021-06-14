@@ -17,7 +17,7 @@
         <a class="navbar-brand" href="{{ path('home') }}">Sotech</a>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav"> {% if app.user %}
-                    <a class="nav-link" href="#">Mes messages</a>
+                    <a class="nav-link" href="{{ path('message') }}">Mes messages</a>
                     <a class="nav-link" href="{{ path('account') }}">Mon compte -
                         <small>{{ app.user.firstname }}</small></a>
                     <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
