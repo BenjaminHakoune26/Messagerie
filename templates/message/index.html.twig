@@ -8,29 +8,26 @@
             background: #F5F5F5;
             padding: 2px 6px;
         }
-
     </style>
     <div class="container-fluid mt-4">
         <div class="row">
-
             <div class="col-3">
                 <p style="text-align: center">Mes contacts</p>
                 {% for users in users %}
-                    <div class="card mt-4">
+                    <div class="card mt-2 ">
                         <div class="card-body">
                             {{ users.firstname }} {{ users.lastname }}
                         </div>
                     </div>
                 {% endfor %}
             </div>
-
             <div class="col-8">
-                <div class="card mt-4" style="width:131vh;height: 65vh ">
+                <div class="card mt-3" style="width:131vh;height: 65vh ">
                     <div class="card-body">
                         <div class="alert alert-dismissible alert-secondary flex-column">
                             <b>Lancry Sacha</b>
-                            <p>Bonjour
-                                <small style="margin-left: 20px">10:52</small>
+                            <p><small style="margin-right: 20px">10:52</small>
+                            Bonjour
                             </p>
                         </div>
                         <div class="alert alert-dismissible alert-danger flex-column" style="text-align: right">
@@ -53,22 +50,16 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-1"></div>
-            *
             <div class="row">
-
                 <div class="col-3"></div>
-
                 <div class="col-8">
-
                     <div class="form-group mt-1">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Entrer votre texte">
                             <span class="btn btn-danger">Envoyer</span>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
