@@ -3,31 +3,28 @@
 {% block title %}Messages{% endblock %}
 
 {% block content %}
-    <style>
-        .example-wrapper code {
-            background: #F5F5F5;
-            padding: 2px 6px;
-        }
-    </style>
     <div class="container-fluid mt-4">
         <div class="row">
-            <div class="col-3">
-                <p style="text-align: center">Mes contacts</p>
-                {% for users in users %}
-                    <div class="card mt-2 ">
-                        <div class="card-body">
-                            {{ users.firstname }} {{ users.lastname }}
+            <div class="col-4">
+                <h4 style="text-align: center" class="mb-4">Mes contacts</h4>
+                <div class="container-fluid ml-3"
+                     style="box-shadow: 0px 1px 3px; font-size: 20px; overflow-y:scroll; height: 75vh">
+                    {% for users in users %}
+                        <div class="card mt-2 ">
+                            <div class="card-body">
+                                {{ users.firstname }} {{ users.lastname }}
+                            </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
             <div class="col-8">
-                <div class="card mt-3" style="width:131vh;height: 65vh ">
+                <div class="card mt-5" style=" width:131vh; height: 65vh; overflow-y:scroll; ">
                     <div class="card-body">
                         <div class="alert alert-dismissible alert-secondary flex-column">
                             <b>Lancry Sacha</b>
                             <p><small style="margin-right: 20px">10:52</small>
-                            Bonjour
+                                Bonjour
                             </p>
                         </div>
                         <div class="alert alert-dismissible alert-danger flex-column" style="text-align: right">
@@ -38,24 +35,33 @@
                         </div>
                         <div class="alert alert-dismissible alert-danger flex-column" style="text-align: right">
                             <b>Moi</b>
-                            <p>reojgieorgjoifjeieosfjopzqjerposfkzqoperfkapoqùzrekfùpozrkeofjzqeùrjùzqejrfùiazqjerùfpzijfretgper,tugi",'iteà)f,i"àz
-                                tgijz(ioejstigz(êitrf^"zieht^f"ùu'fpeoir$fa"q
-                                igjêurtçp"u'ap*tri
-                                à"'aitrf*i"a'zeir)
-                                àa"'ît
-                                "a'iti'"à)
+                            <p>reojgieorgjoifjeieosfjopzqjerposfkzqoperfkapoqùzrekfùpozrkeofjzqeùrjùzqejrfùiazqjerùfpzi
+                                fretgper,tugi",'iteà)f,i"àz tgijz(ioejstigz(êitrf^"zieht^f"ùu'fpeoir$fa"q igjêurtçp"u'ap
+                                * tri à"'aitrf*i"a'zeir) àa"'ît "a'iti'"à)
+                                <small style="margin-left: 20px">10:52</small>
+                            </p>
+                        </div>
+                        <div class="alert alert-dismissible alert-danger flex-column" style="text-align: right">
+                            <b>Moi</b>
+                            <p>reojgieorgjoifjeieosfjopzqjerposfkzqoperfkapoqùzrekfùpozrkeofjzqeùrjùzqejrfùiazqjerùfpzi
+                                fretgper,tugi",'iteà)f,i"àz tgijz(ioejstigz(êitrf^"zieht^f"ùu'fpeoir$fa"q igjêurtçp"u'ap
+                                * tri à"'aitrf*i"a'zeir) àa"'ît "a'iti'"à)
+                                <small style="margin-left: 20px">10:52</small>
+                            </p>
+                        </div>
+                        <div class="alert alert-dismissible alert-danger flex-column" style="text-align: right">
+                            <b>Moi</b>
+                            <p>reojgieorgjoifjeieosfjopzqjerposfkzqoperfkapoqùzrekfùpozrkeofjzqeùrjùzqejrfùiazqjerùfpzi
+                                fretgper,tugi",'iteà)f,i"àz tgijz(ioejstigz(êitrf^"zieht^f"ùu'fpeoir$fa"q igjêurtçp"u'ap
+                                * tri à"'aitrf*i"a'zeir) àa"'ît "a'iti'"à)
                                 <small style="margin-left: 20px">10:52</small>
                             </p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-1"></div>
-            <div class="row">
-                <div class="col-3"></div>
-                <div class="col-8">
-                    <div class="form-group mt-1">
-                        <div class="input-group mb-3">
+                <div class="container">
+                    <div class="form-group mt-2">
+                        <div class="input-group">
                             <input type="text" class="form-control" placeholder="Entrer votre texte">
                             <span class="btn btn-danger">Envoyer</span>
                         </div>
