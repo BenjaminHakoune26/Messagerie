@@ -8,9 +8,6 @@
             <div class="col-2"></div>
             <div class="col-8">
                 <h1 class="my-4" style="text-align: center"> Inscription</h1>
-                {% if notification %}
-                    <div class="alert alert-info"> {{ notification }} </div>
-                {% endif %}
 
                 {{ form_start(form) }}
                 {{ form_label(form.firstname) }}
@@ -30,6 +27,7 @@
                     {{ form_widget(form.submit) }}
                 </div>
                 {{ form_end(form) }}
+                <P style="text-align: right">Veuillez vous connecter, <a href="{{ path('app_login') }}">cliquer ici.</a> </P>
             </div>
             <div class="col-2"></div>
         </div>

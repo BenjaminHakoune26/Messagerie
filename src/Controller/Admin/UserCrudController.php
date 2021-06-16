@@ -7,6 +7,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
+
+
 class UserCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
@@ -17,8 +19,10 @@ class UserCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('email'),
+
+            IdField::new('Id'),
+            TextField::new('Email'),
+            TextField::new('Role'),
             TextField::new('Firstname'),
             TextField::new('Lastname')
         ];
