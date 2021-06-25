@@ -8,7 +8,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 
-
 class UserCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
@@ -16,16 +15,13 @@ class UserCrudController extends AbstractCrudController
         return User::class;
     }
 
-    public function configureFields(string $pageName): iterable
-    {
-        return [
-
-            IdField::new('Id'),
-            TextField::new('Email'),
-            TextField::new('Role'),
-            TextField::new('Firstname'),
-            TextField::new('Lastname')
-        ];
-    }
-
+//    public function configureFields(string $pageName): iterable
+//    {
+//        return [
+//            IdField::new('Id'),
+//            TextField::new('Email'),
+//            TextField::new('Role'),//           TextField::new('Firstname'),
+//            TextField::new('Lastname')
+//        ];
+////   }
 }

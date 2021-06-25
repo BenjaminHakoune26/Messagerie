@@ -2,18 +2,16 @@
 {% block title %}Accueil{% endblock %}
 
 {% block content %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    .tech {position: absolute; top: 300px; right: 440px}
-</style>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <h1 style="text-align: center" class="mt-5"><span>Messagerie SoTech</span></h1>
+            <p class="mt-4" style="text-align: center"> Bienvenue sur la messagerie de Techwood.
+                <br> Pour pouvoir l'utiliser, veuillez vous connectez ou si ce n'est pas encore fait, vous inscrire.
 
-<div class="example-wrapper">
-    <h1 style="text-align: center">Messagerie SoTech</h1>
-
-    <p class="mt-4" style="text-align: center"> Bienvenue sur la messagerie de Techwood.
-        <br> Pour pouvoir l'utiliser, veuillez vous connectez ou si ce n'est pas encore fait, vous inscrire.
-    </p>
-    <img src="{{ asset('assets/images/TECH.jpeg') }}" alt="techwood" class="tech">
-</div>
+                <img src="{{ asset('assets/images/TECH.jpeg') }}" class="mt-5" style="text-align: center">
+            </p>
+        </div>
+        <div class="col-3"></div>
+    </div>
 {% endblock %}

@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Messages;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -23,7 +24,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Admin Sotech');
+            ->setTitle('Sotech Admin');
     }
 
     public function configureMenuItems(): iterable
@@ -33,6 +34,5 @@ class DashboardController extends AbstractDashboardController
         Yield MenuItem::section('Utilisateurs', 'fa fa-user');
         yield MenuItem::linkToCrud('Nos utilisateurs', 'fa fa-', User::class);
         Yield MenuItem::linkToUrl('Inscription', 'fa fa','/inscription');
-
     }
 }

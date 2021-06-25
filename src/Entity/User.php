@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -44,6 +46,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $lastname;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Message::class, mappedBy="auteur")
+     */
+    private $messages;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Discussion::class, mappedBy="possede")
+     */
+    private $discussions;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Discussion::class, mappedBy="participants")
+     */
+    private $participants;
+
+    public function __construct()
+    {
+        $this->messages = new ArrayCollection();
+        $this->discutions = new ArrayCollection();
+        $this->discussions = new ArrayCollection();
+        $this->participants = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -152,5 +177,89 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getUsername()
     {
+    }
+
+    /**
+     * @return Collection|Message[]
+     */
+    public function getMessages(): Collection
+    {
+        return $this->messages;
+    }
+
+    public function addMessage(Message $message): self
+    {
+        if (!$this->messages->contains($message)) {
+            $this->messages[] = $message;
+            $message->setAuteur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessage(Message $message): self
+    {
+        if ($this->messages->removeElement($message)) {
+            // set the owning side to null (unless already changed)
+            if ($message->getAuteur() === $this) {
+                $message->setAuteur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Discussion[]
+     */
+    public function getDiscussions(): Collection
+    {
+        return $this->discussions;
+    }
+
+    public function addDiscussion(Discussion $discussion): self
+    {
+        if (!$this->discussions->contains($discussion)) {
+            $this->discussions[] = $discussion;
+            $discussion->addPossede($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDiscussion(Discussion $discussion): self
+    {
+        if ($this->discussions->removeElement($discussion)) {
+            $discussion->removePossede($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Discussion[]
+     */
+    public function getParticipants(): Collection
+    {
+        return $this->participants;
+    }
+
+    public function addParticipant(Discussion $participant): self
+    {
+        if (!$this->participants->contains($participant)) {
+            $this->participants[] = $participant;
+            $participant->addParticipant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParticipant(Discussion $participant): self
+    {
+        if ($this->participants->removeElement($participant)) {
+            $participant->removeParticipant($this);
+        }
+
+        return $this;
     }
 }
