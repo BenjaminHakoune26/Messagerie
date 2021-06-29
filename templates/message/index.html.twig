@@ -3,61 +3,46 @@
 {% block title %}Messages{% endblock %}
 
 {% block content %}
-    <style>
-
-    </style>
     <div class="container-fluid mt-4">
         <div class="row">
             <div class="col-4">
-                <h4 style="text-align: center" class="mb-4">Mes contacts</h4>
-                <div class="container-fluid card" style=" overflow-y:scroll; height: 74vh">
+                <div class="container-fluid card" style=" overflow-y:scroll; height: 79vh">
                     {% for users in users %}
-                        <div class="card mt-2 ">
-                            <div class="card-body">
-                                {{ users.firstname }} {{ users.lastname }}
-                            </div>
-                        </div>
+                        {% if app.user.id != users.id %}
+                            {% for discussions in discussions %}
+                                <div class="card mt-2">
+                                    <div class="card-body" id="ID CONVERSATION">
+                                        {{ users.firstname }} {{ users.lastname }} <br>
+                                        id discution :{{ discussions.id }} <br>
+                                        id participant : {{ discussions.participants[0].id }}<br>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
+
             <div class="col-8">
-                <div class="card mt-5" style=" width:131vh; height: 65vh; overflow-y:scroll; ">
+                <div class="card" style=" width:131vh; height: 72vh; overflow-y:scroll; ">
                     <div class="card-body">
+                        {% for discussions in discussions %}
+                       id discussion : {{ discussions.id }}
                         <div class="alert alert-dismissible alert-secondary flex-column">
-                            <b>Lancry Sacha</b>
-                            <p><small style="margin-right: 20px">10:52</small>
-                                Bonjour
+                            <b>{{ discussions.message[0].auteur.lastname }} {{ discussions.message[0].auteur.firstname }}</b>
+                            <p>
+                                <small style="margin-right: 20px">{{ discussions.message[0].createdat | date('h:i') }}</small>
+                                {{ discussions.message[0].content }}
                             </p>
                         </div>
                         <div class="alert alert-dismissible alert-danger flex-column" style="text-align: right">
-                            <b>Moi</b>
-                            <p> heeey
-                                <small style="margin-left: 20px">10:52</small>
-                            </p>
-                        </div>
-                        <div class="alert alert-dismissible alert-danger flex-column" style="text-align: right">
-                            <b>Moi</b>
-                            <p>ça flingue ?
-                                <small style="margin-left: 20px">10:52</small>
-                            </p>
-                        </div>
-                        <div class="alert alert-dismissible alert-danger flex-column" style="text-align: right">
-                            <b>Moi</b>
-                            <p>reojgieorgjoifjeieosfjopzqjerposfkzqoperfkapoqùzrekfùpozrkeofjzqeùrjùzqejrfùiazqjerùfpzi
-                                fretgper,tugi",'iteà)f,i"àz tgijz(ioejstigz(êitrf^"zieht^f"ùu'fpeoir$fa"q igjêurtçp"u'ap
-                                * tri à"'aitrf*i"a'zeir) àa"'ît "a'iti'"à)
-                                <small style="margin-left: 20px">10:52</small>
-                            </p>
-                        </div>
-                        <div class="alert alert-dismissible alert-danger flex-column" style="text-align: right">
-                            <b>Moi</b>
-                            <p>reojgieorgjoifjeieosfjopzqjerposfkzqoperfkapoqùzrekfùpozrkeofjzqeùrjùzqejrfùiazqjerùfpzi
-                                fretgper,tugi",'iteà)f,i"àz tgijz(ioejstigz(êitrf^"zieht^f"ùu'fpeoir$fa"q igjêurtçp"u'ap
-                                * tri à"'aitrf*i"a'zeir) àa"'ît "a'iti'"à)
-                                <small style="margin-left: 20px">10:52</small>
+                            <b>{{ discussions.message[1].auteur.lastname }} {{ discussions.message[1].auteur.firstname }}</b>
+                            <p> {{ discussions.message[1].content }}
+                                <small style="margin-left: 20px">{{ discussions.message[1].createdat | date('h:i') }}</small>
                             </p>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
                 <div class="container">
                     <div class="form-group mt-2">

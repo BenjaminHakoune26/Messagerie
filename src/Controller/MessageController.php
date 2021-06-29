@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Discussion;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,9 +16,13 @@ class MessageController extends AbstractController
     public function index(): Response
     {
         $users = $this->getDoctrine()->getRepository(User::class)->findAll();
+        $discussions = $this->getDoctrine()->getRepository(Discussion::class)->findAll();
+
+
 
         return $this->render('message/index.html.twig',[
-            'users'=>$users
+            'users'=>$users,
+            'discussions'=>$discussions
         ]);
     }
 }
